@@ -1,0 +1,22 @@
+.pagination {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 15px;
+}
+
+.pagination a:link {
+  background-color: #1890FF;
+}
+
+.pagination .ant-select-selector {
+  display: none;
+}
+
+.list {
+  height: 941px;
+  display: flex;
+  flex-direction: column;
+}

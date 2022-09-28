@@ -1,0 +1,78 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 22px 13px 22px;
+  margin-bottom: 24px;
+  background-color: #fff;
+  font-size: 18px;
+  line-height: 28px;
+  height: 80px;
+}
+
+.logo {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.sign-in {
+  color: rgba(0, 0, 0, 0.85);
+  padding: 6px 18px 10px 18px;
+  border: 1px solid transparent;
+}
+
+.sign-up {
+  margin-left: 37px;
+  padding: 6px 18px 10px 18px;
+}
+
+.sign-up,
+.sign-up:hover,
+.sign-up:focus,
+.sign-in:hover,
+.sign-in:focus {
+  color: #52C41A;
+  border: 1px solid #52C41A;
+  border-radius: 5px;
+}
+
+.user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 27px;
+}
+
+.img {
+  margin-left: 13px;
+}
+
+.username {
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.username:hover,
+.username:focus,
+.create:hover,
+.create:focus {
+  color: #52C41A;
+}
+
+.create {
+  font-size: 14px;
+  line-height: 22px;
+  color: #52C41A;
+  border: 1px solid #52C41A;
+  border-radius: 5px;
+  padding: 6px 10px;
+}
+
+.logout {
+  color: rgba(0, 0, 0, 0.75);
+  font-size: 18px;
+  line-height: 28px;
+  border: 1px solid rgba(0, 0, 0, 0.75);
+  border-radius: 5px;
+  padding: 6px 18px 10px 18px;
+}

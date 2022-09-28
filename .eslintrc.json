@@ -27,7 +27,6 @@
     "requireConfigFile": false
   },
   "plugins": ["import", "jsx-a11y", "react", "@babel", "babel", "prettier"],
- 
   "rules": {
     "default-param-last": 0,
     "react/function-component-definition": 0,
@@ -36,7 +35,7 @@
     "import/prefer-default-export": "off",
     "indent": "off",
     "no-unused-expressions": 0,
-    "prettier/prettier": "off",
+    "prettier/prettier": "error",
     "linebreak-style": [0, "unix"],
     "quotes": ["error", "single"],
     "semi": ["error", "always"],

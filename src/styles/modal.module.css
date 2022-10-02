@@ -87,6 +87,8 @@
 
 .tags {
   list-style-type: none;
+  display: flex;
+  align-items: center;
 }
 
 .button-delete {
@@ -98,7 +100,7 @@
   border: 1px solid #F5222D;
   border-radius: 4px;
   background-color: #fff;
-  margin-left: 17px;
+  margin: 2px 0px 5px 17px;
   cursor: pointer;
 }
 
@@ -110,7 +112,7 @@
   color: #1890FF;
   border-radius: 4px;
   background-color: #fff;
-  margin-left: 17px;
+  margin: 2px 0px 5px 17px;
   cursor: pointer;
   border: 1px solid #1890FF;
   border-radius: 4px;

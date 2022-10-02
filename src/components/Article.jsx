@@ -37,18 +37,19 @@ const Article = ({ article }) => {
           )}
           <span className={classes.likes}>{favoritesCount}</span>
         </div>
-        {tagList &&
-          tagList.map((tag) => (
-            <Tag className={classes.tag} key={uniqueId()}>
-              {tag}
-            </Tag>
+        <ul className={classes.taglist}>
+          {tagList?.map((tag) => (
+            <li key={uniqueId()}>
+              <Tag className={classes.tag}>{tag}</Tag>
+            </li>
           ))}
+        </ul>
         <p className={classes.description}>{description}</p>
       </section>
       <section className={classes.author}>
         <div>
-          <p className={classes.name}>{author.username}</p>
-          <p className={classes.date}>{format(new Date(createdAt), 'MMMM dd, yyyy')}</p>
+          <div className={classes.name}>{author.username}</div>
+          <div className={classes.date}>{format(new Date(createdAt), 'MMMM dd, yyyy')}</div>
         </div>
         <img src={author.image} alt="avatar" className={classes.image} />
       </section>

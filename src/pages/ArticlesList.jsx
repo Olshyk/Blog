@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Spin, Pagination } from 'antd';
+import { Spin, Pagination, Alert } from 'antd';
 import 'antd/dist/antd.css';
 
 import { getArticlesList, setPage } from '../redux/actions/actionsArticle';
@@ -23,13 +23,13 @@ const ArticlesList = () => {
     window.scrollTo(0, 0);
   };
 
-  const spinner = isLoading ? <Spin size="large" /> : null;
-  const content = data && data.map((item) => <Article key={item.slug} article={item} />);
-
   return (
     <div className={classes.list}>
-      {spinner}
-      {content}
+      {isLoading && <Spin size="large" />}
+      {data?.map((item) => (
+        <Article key={item.slug} article={item} />
+      ))}
+      {!data && !isLoading && <Alert message="No results" type="info" />}
       <Pagination
         className={classes.pagination}
         size="small"

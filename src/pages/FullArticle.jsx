@@ -37,12 +37,9 @@ const FullArticle = () => {
     isLogin && dispatch(dislikeArticle(slug));
   };
 
-  const spinner = isLoading ? <Spin size="large" /> : null;
-
   return (
     <article className={classes['full-article']}>
-      {spinner}
-      {!article && spinner}
+      {(isLoading || !article) && <Spin size="large" />}
       {!isLoading && !isError && article && (
         <>
           <div className={classes.header}>
@@ -56,21 +53,22 @@ const FullArticle = () => {
                 )}
                 <span className={classes.likes}>{article.favoritesCount}</span>
               </div>
-              {article.tagList &&
-                article.tagList.map(
+              <ul className={classes.taglist}>
+                {article.tagList?.map(
                   (tag) =>
                     tag && (
-                      <Tag className={classes.tag} key={uniqueId()}>
-                        {tag}
-                      </Tag>
+                      <li key={uniqueId()}>
+                        <Tag className={classes.tag}>{tag}</Tag>
+                      </li>
                     )
                 )}
+              </ul>
               <p className={classes.description}>{article.description}</p>
             </section>
             <section className={classes.author}>
               <div>
-                <p className={classes.name}>{article.author.username}</p>
-                <p className={classes.date}>{format(new Date(article.createdAt), 'MMMM dd, yyyy')}</p>
+                <div className={classes.name}>{article.author.username}</div>
+                <div className={classes.date}>{format(new Date(article.createdAt), 'MMMM dd, yyyy')}</div>
               </div>
               <img src={article.author.image} alt="avatar" className={classes.image} />
               {article.author.username === user.username && (

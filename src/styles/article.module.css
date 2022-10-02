@@ -92,6 +92,10 @@ body {
   transform: translateY(-10px);
 
 }
+.taglist {
+  display: flex;
+  list-style-type: none;
+}
 
 .tag {
   background-color: #fff;

@@ -18,15 +18,17 @@ export const setError = (payload) => ({ type: 'SET_ERROR', payload });
 
 export const setFavorite = (payload) => ({ type: 'SET_FAVORITE', payload });
 
-export const getArticlesList = (page) => (dispatch) => {
+export const getArticlesList = (page) => async (dispatch) => {
   dispatch(isLoading(true));
-  getArticles(page)
-    .then((res) => {
-      dispatch(setArticles(res));
-      dispatch(isLoading(false));
-      dispatch(setError(false));
-    })
-    .catch((e) => console.log(`error  ${e}`), dispatch(setError(true)));
+  try {
+    const res = await getArticles(page);
+    dispatch(setArticles(res));
+    dispatch(isLoading(false));
+    dispatch(setError(false));
+  } catch (e) {
+    console.log(`error  ${e}`);
+    dispatch(setError(true));
+  }
 };
 
 export const getArticle = (slug) => async (dispatch) => {

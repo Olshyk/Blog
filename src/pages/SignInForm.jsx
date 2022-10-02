@@ -73,10 +73,8 @@ const SignInForm = () => {
           />
           {errors.password && <p className={classes.error}>{errors.password.message}</p>}
         </label>
-        {errors.email?.type === 'server' || errors.password?.type === 'server' ? (
+        {(errors.email?.type === 'server' || errors.password?.type === 'server') && (
           <p className={classes.error}>Email or password is invalid</p>
-        ) : (
-          ''
         )}
         <button type="submit" title="login" aria-label="login" className={classes.button}>
           Login

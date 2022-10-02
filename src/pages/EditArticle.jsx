@@ -30,11 +30,9 @@ const EditArticle = () => {
     dispatch(isLoading(false));
   };
 
-  const spinner = loading ? <Spin size="large" /> : null;
-
   return (
     <>
-      {spinner}
+      {loading && <Spin size="large" />}
       {!loading && !isError && article && (
         <ArticleForm onCreate={(data) => onSubmit(data)} title="Edit article" article={article} />
       )}

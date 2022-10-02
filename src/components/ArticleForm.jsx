@@ -30,7 +30,7 @@ const ArticleForm = ({ onCreate, article, title }) => {
       <li className={classes.tags} key={el.id}>
         <input
           className={classes.input}
-          style={{ width: 300, display: 'inline-block', marginBottom: 5 }}
+          style={{ width: 300, marginBottom: 5 }}
           type="text"
           placeholder="Tag"
           {...register(`tagList.${idx}.name`)}
@@ -99,7 +99,7 @@ const ArticleForm = ({ onCreate, article, title }) => {
         </label>
         <label className={classes.label}>
           Tags
-          <div>{tagsBlock}</div>
+          <ul>{tagsBlock}</ul>
         </label>
         <button
           type="submit"

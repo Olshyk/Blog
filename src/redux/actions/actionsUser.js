@@ -23,14 +23,16 @@ export const registration = (payload) => async (dispatch) => {
     const res = await createUser(payload);
     if (res.username) {
       dispatch(isErrorUsername(true));
-    } else if (res.email) {
-      dispatch(isErrorEmail(true));
-    } else {
-      dispatch(setUser(res.user));
-      localStorage.setItem('token', JSON.stringify(res.user.token));
-      localStorage.setItem('user', JSON.stringify(res.user));
-      setUserError(false);
+      return;
     }
+    if (res.email) {
+      dispatch(isErrorEmail(true));
+      return;
+    }
+    dispatch(setUser(res.user));
+    localStorage.setItem('token', JSON.stringify(res.user.token));
+    localStorage.setItem('user', JSON.stringify(res.user));
+    setUserError(false);
   } catch (e) {
     console.log(`error  ${e}`);
     dispatch(setUserError(true));
@@ -51,7 +53,6 @@ export const auth = (payload) => async (dispatch) => {
 export const updateUserProfile = (payload) => async (dispatch) => {
   try {
     const res = await updateUser(payload);
-
     if (res.username) {
       dispatch(isErrorUsername(true));
       dispatch(editError(true));
